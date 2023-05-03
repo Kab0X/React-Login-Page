@@ -5,12 +5,14 @@ import ScrollList from "./ImagesLeft/ScrollList";
 
 function ImagesSide() {
     return (
-        <div className="basis-5/12 bg-zinc-200">
-            <div className="w-full max-w-lg mx-32 mt-28 flex flex-col">
+        <div className="basis-5/12 bg-[#f5f7f9]">
+            <div className="mx-36 mt-28 flex flex-col">
                 <Logo />
                 <Images />
                 <Description />
-                <ScrollList />
+                <div className="justify-center flex mt-16">
+                    <ScrollList />
+                </div>
             </div>
         </div>
     );

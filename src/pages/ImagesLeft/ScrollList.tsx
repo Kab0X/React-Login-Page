@@ -1,17 +1,44 @@
+import { useState } from 'react';
 import leftArrowIcon from '../../assets/images/leftArrow.svg'
 import rightArrowIcon from '../../assets/images/rightArrow.svg'
 
 function ScrollList() {
+    const [currentPage, setPage] = useState(3);
+    const [pageStyles, setPageStyle] = useState<string[]>(['bg-slate-300', 'bg-slate-300', 'bg-slate-600', 'bg-slate-300', 'bg-slate-300']);
+
+    const changePage = (direction: string) => {
+        const PageStyle = [...pageStyles];
+
+        if (direction === 'left') {
+            if (currentPage !== 1) {
+                setPage(currentPage-1);
+                PageStyle[currentPage-1] = 'bg-slate-300';
+                PageStyle[currentPage-2] = 'bg-slate-600';
+                return setPageStyle(PageStyle);
+            }
+            return;
+
+        }
+        if (direction === 'right') {
+            if (currentPage !== 5) {
+                setPage(currentPage+1);
+                PageStyle[currentPage-1] = 'bg-slate-300';
+                PageStyle[currentPage] = 'bg-slate-600';
+                return setPageStyle(PageStyle);
+            }
+            return;
+        }
+    }
+
     return (
-        <div className='mt-28 flex items-center gap-10 justify-center'>
-            <img src={leftArrowIcon} className='w-4 h-4 cursor-pointer'/>
-            <div className='w-2 h-2 bg-slate-300 rounded-full'></div>
-            <div className='w-2 h-2 bg-slate-300 rounded-full'></div>
-            <div className='w-2 h-2 bg-slate-300 rounded-full'></div>
-            <div className='w-2 h-2 bg-slate-600 rounded-full'></div>
-            <div className='w-2 h-2 bg-slate-300 rounded-full'></div>
-            <div className='w-2 h-2 bg-slate-300 rounded-full'></div>
-            <img src={rightArrowIcon} className='w-4 h-4 cursor-pointer'/>
+        <div className='flex gap-x-8 items-center'>
+            <img src={leftArrowIcon} onClick={() => changePage('left')} className='w-4 h-4 cursor-pointer mr-8 select-none'/>
+            <div className={`w-2 h-2 transition rounded-full ${pageStyles[0]}`}></div>
+            <div className={`w-2 h-2 transition rounded-full ${pageStyles[1]}`}></div>
+            <div className={`w-2 h-2 transition rounded-full ${pageStyles[2]}`}></div>
+            <div className={`w-2 h-2 transition rounded-full ${pageStyles[3]}`}></div>
+            <div className={`w-2 h-2 transition rounded-full ${pageStyles[4]}`}></div>
+            <img src={rightArrowIcon} onClick={() => changePage('right')} className='w-4 h-4 cursor-pointer ml-8 select-none'/>
         </div>
     );
 }

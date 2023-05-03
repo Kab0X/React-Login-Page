@@ -1,9 +1,9 @@
-import facebookIcon from '../../assets/images/facebook.png'
+import logokIcon from '../../assets/images/logo.png'
 
 function Logo() {
     return (
-        <div className='flex text-4xl gap-4 cursor-pointer'>
-            <img src={facebookIcon} className='w-10 h-10'/>
+        <div className='flex text-5xl gap-3 cursor-pointer'>
+            <img src={logokIcon} className='w-14 h-14'/>
             <p>FINOTIC</p>
         </div>
     );

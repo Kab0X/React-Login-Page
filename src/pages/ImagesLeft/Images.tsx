@@ -1,8 +1,8 @@
-import image from '../../assets/images/leftImage.png';
+import image from '../../assets/images/images2.png';
 
 function Images() {
     return (
-        <div className='mt-14 mx-auto'>
+        <div className='mt-16'>
             <img src={image} className='w-full'/>
         </div>
     );
