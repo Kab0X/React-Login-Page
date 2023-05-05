@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import {  Routes, Route, Outlet } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 import './App.css';
-import ImagesSide from './pages/ImagesSide';
-import LoginRight from './pages/LoginRight';
 
-function App() {
+export default function App() {
   return (
-    <div className="w-full h-screen flex">
-      <ImagesSide />
-      <LoginRight />
-  </div>
-  )
+    <div>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
+      </Routes>
+      <Outlet/>
+    </div>
+  );
 }
-
-export default App

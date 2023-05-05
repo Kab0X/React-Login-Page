@@ -3,18 +3,18 @@ import leftArrowIcon from '../../assets/images/leftArrow.svg'
 import rightArrowIcon from '../../assets/images/rightArrow.svg'
 
 function ScrollList() {
-    const [currentPage, setPage] = useState(3);
+    const [currentPage, setPage] = useState<number>(3);
     const [pageStyles, setPageStyle] = useState<string[]>(['bg-slate-300', 'bg-slate-300', 'bg-slate-600', 'bg-slate-300', 'bg-slate-300']);
 
     const changePage = (direction: string) => {
-        const PageStyle = [...pageStyles];
+        const newStyles = [...pageStyles];
 
         if (direction === 'left') {
             if (currentPage !== 1) {
                 setPage(currentPage-1);
-                PageStyle[currentPage-1] = 'bg-slate-300';
-                PageStyle[currentPage-2] = 'bg-slate-600';
-                return setPageStyle(PageStyle);
+                newStyles[currentPage-1] = 'bg-slate-300';
+                newStyles[currentPage-2] = 'bg-slate-600';
+                return setPageStyle(newStyles);
             }
             return;
 
@@ -22,9 +22,9 @@ function ScrollList() {
         if (direction === 'right') {
             if (currentPage !== 5) {
                 setPage(currentPage+1);
-                PageStyle[currentPage-1] = 'bg-slate-300';
-                PageStyle[currentPage] = 'bg-slate-600';
-                return setPageStyle(PageStyle);
+                newStyles[currentPage-1] = 'bg-slate-300';
+                newStyles[currentPage] = 'bg-slate-600';
+                return setPageStyle(newStyles);
             }
             return;
         }
