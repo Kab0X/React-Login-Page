@@ -1,8 +1,7 @@
-import { useEffect } from "React";
-
+import { useEffect } from "react";
 import image from "/src/assets/images/images2.png";
 
-function GalleryItem({ currentPage }: { currentPage: string }) {
+function GalleryItem({ currentPage }: { currentPage: number }) {
   useEffect(() => {
     console.log(currentPage);
   }, [currentPage]);
