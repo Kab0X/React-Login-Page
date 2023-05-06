@@ -1,7 +1,6 @@
-import {  Routes, Route, Outlet } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import LoginPage from "./components/pages/LoginPage";
+import RegisterPage from "./components/pages/RegisterPage";
 
 export default function App() {
   return (
@@ -10,7 +9,6 @@ export default function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
       </Routes>
-      <Outlet/>
     </div>
   );
 }
